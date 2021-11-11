@@ -23,8 +23,8 @@
 import sys
 
 n = int(input())
-a=[0 for _ in range(10000001)]
-b=[0 for _ in range(10000001)]
+a=[0 for _ in range(1000001)]
+b=[0 for _ in range(1000001)]
 
 maxLen=0
 a_input = list(map(int,sys.stdin.readline().split()))
