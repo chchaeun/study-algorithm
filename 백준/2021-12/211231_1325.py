@@ -1,17 +1,16 @@
 import sys
-from collections import deque
+from collections import defaultdict, deque
 
 n, m = map(int, sys.stdin.readline().split())
 
-table = [[] for _ in range(n+1)]
+table = defaultdict(list)
 for i in range(m):
     a, b = map(int, sys.stdin.readline().split())
     table[b].append(a)
-    
 
 def bfs(i):
     count=0
-    visited = [False for _ in range(n+1)]
+    visited = [False] * (n+1)
     visited[i]=True
     dq = deque([i])
     while dq:
@@ -34,4 +33,5 @@ for i in range(1, n+1):
     elif max_count == temp:
         result.append(i)
 
-print(*result)
+for i in result:
+    print(i, end=" ")
