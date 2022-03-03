@@ -12,17 +12,17 @@ print(graph)
 
 def dijkstra(start):
     hq = []
-    heapq.heappush(hq, (start, 0))
+    heapq.heappush(hq, (0, start))
     distance[start] = 0
     while hq:
-        now, dist = heapq.heappop(hq)
+        dist, now = heapq.heappop(hq)
         if distance[now] < dist:
             continue
         for next in graph[now]:
             cost = distance[now] + next[1]  # 출발노드->거쳤다 가는 거
             if cost < distance[next[0]]:    # 출발노드->next 노드 바로 가는 거
                 distance[next[0]] = cost
-                heapq.heappush(hq, (next[0], cost))
+                heapq.heappush(hq, (cost, next[0]))
                 
 dijkstra(0)
 
