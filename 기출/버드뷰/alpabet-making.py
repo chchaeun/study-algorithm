@@ -18,5 +18,5 @@ def solution(card, word):
             answer.append(w)
     return answer if answer else ['-1']
 
-print(solution(['ABACDEFG', 'NOPQRSTU', 'HIJKLKMM'], ['GPQM', 'GPMZ','EFU', 'MMNA']))
+print(solution(['ABACDEFG', 'NOPQRSTU', 'HIJKLKMM'], ['GPQM', 'GPMZ', 'EFU', 'MMNA']))
 print(solution(['AABBCCDD', 'KKKKJJJJ', 'MOMOMOMO'], ['AAAKKKKKMMMMM', 'ABCDKJ']))
