@@ -12,16 +12,13 @@ def in_range(y, x):
 def dfs(y, x):
     if not dp[y][x]:
         dys, dxs = [1, 0, -1, 0], [0, 1, 0, -1]
-        leaf = True
+        dp[y][x] = 1
+        
         for dy, dx in zip(dys, dxs):
             ny, nx = y + dy, x + dx
 
             if in_range(ny, nx) and bamboo[ny][nx] > bamboo[y][x]:
                 dp[y][x] = max(dp[y][x], dfs(ny, nx) + 1)
-                leaf = False
-
-        if leaf:
-            dp[y][x] = 1
 
     return dp[y][x]
 
