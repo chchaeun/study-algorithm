@@ -1,15 +1,17 @@
 import sys; input=sys.stdin.readline
 import heapq
 
+v, e = map(int, input().split())
+k = int(input())
+
 INF = int(1e9)
 
-n, e = map(int, input().split()) # 노드 수, 간선 수
-graph = [[] for _ in range(n)] # 노드 정보
-distance = [INF for _ in range(n)] # 최단 거리
+graph = [[] for _ in range(v+1)] # 노드 정보
+distance = [INF for _ in range(v+1)] # 최단 거리
 
 for _ in range(e):
-    a, b, c = map(int, input().split()) # 출발, 도착, 가중치
-    graph[a].append((b, c))
+    u, v, w = map(int, input().split()) # 출발, 도착, 가중치
+    graph[u].append((v, w))
 
 def dijkstra(start):
     hq = []
@@ -23,15 +25,15 @@ def dijkstra(start):
         
         for next in graph[now]:
             cost = dist + next[1]  # 출발노드->거쳤다 가는 거
-
+            
             if cost < distance[next[0]]:    # 출발노드->next 노드 바로 가는 거
                 distance[next[0]] = cost
-                heapq.heappush(hq, (cost, next[0]))
-                
-dijkstra(0)
+                heapq.heappush(hq, (cost, next[0])) 
 
-for i in range(len(distance)):
-    if distance[i] == INF:
-        print('도달할 수 없음')
-    else:
-        print(distance[i])
+dijkstra(k)
+
+for d in distance[1:]:
+    if d == INF:
+        print('INF')
+        continue
+    print(d)
