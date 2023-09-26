@@ -1,4 +1,3 @@
-from collections import deque
 
 N = int(input())
 init = [list(map(int, input().split())) for _ in range(N)]
@@ -8,7 +7,7 @@ def move(board):
     merge = False
 
     for i in range(N):
-        stack = deque()
+        stack = []
         for j in range(N):
             num = board[i][j]
             if num == 0:
@@ -19,9 +18,9 @@ def move(board):
                 continue
             stack.append(num)
             merge = False
-        print(stack) 
-        for j in range(N-len(stack), N):
-            nboard[i][j] = stack.popleft()
+    
+        for j in range(len(stack)):
+            nboard[i][j] = stack[j]
 
     return nboard
 
@@ -44,7 +43,7 @@ def rotate(board, direction):
     return nboard
 
 def nPr(board, depth):
-    if depth == 6:
+    if depth == 5:
         find_max(board)
         return
 
@@ -64,10 +63,5 @@ def find_max(board):
 def deepcopy(board):
     return [b[:] for b in board]
     
-# nPr(init, 0)
+nPr(init, 0)
 print(answer)
-
-# print(move(init))
-# print(rotate(move(rotate(init, 1)), 3))
-print(rotate(move(rotate(init, 2)), 2))
-# print(rotate(move(rotate(init, 3)), 1))
