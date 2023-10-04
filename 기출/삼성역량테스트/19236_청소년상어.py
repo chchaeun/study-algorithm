@@ -49,11 +49,7 @@ def shark_move(location, number, direction, y, x, d, score):
         if not (0<=ny<N and 0<=nx<N) or number[ny][nx] == EMPTY:
             global answer
             answer = max(answer, score)
-            for n in number:
-                print(*n)
-            print(score)
-
-            return
+            continue
 
         before_num = number[ny][nx]
         location[before_num] = []
@@ -68,27 +64,6 @@ global answer
 answer = number[0][0]
 location[number[0][0]] = []
 number[0][0] = -1
-
-# for n in number:
-#     print(*n)
-# print()
-
-# location, number, direction = fish_move(location, number, direction)
-# print(location)
-# print(direction)
-# for n in number:
-#     print(*n)
-# print()
-
-# number[0][0] = 0
-# number[3][3] = -1
-# location[8] = []
-# location, number, direction = fish_move(location, number, direction)
-# print(location)
-# print(direction)
-# for n in number:
-#     print(*n)
-# print()
 
 shark_move(location, number, direction, 0, 0, direction[answer], answer)
 print(answer)
