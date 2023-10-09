@@ -104,24 +104,11 @@ answer = 0
 wind_mount = mount()
 
 while answer < 101:
-    print(answer)
     wind()
-
-    for i in range(R):
-        for j in range(C):
-            print(temp[(i, j)], end=" ")
-        print()
-    print()
     change()
-
-    for i in range(R):
-        for j in range(C):
-            print(temp[(i, j)], end=" ")
-        print()
-    print()
     outline()
     answer += 1
-    
+
     if check():
         break
 print(answer)
