@@ -112,5 +112,3 @@ while answer < 101:
     if check():
         break
 print(answer)
-
-
