@@ -36,8 +36,8 @@ def nCr2(arr, n):
             arr.pop()
             visited[i] = False
 
-visited = [False] * 5
-nCr2([], 3)
+# visited = [False] * 5
+# nCr2([], 3)
 
 
 def nPr(arr, n):
