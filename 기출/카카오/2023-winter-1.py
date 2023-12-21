@@ -12,7 +12,7 @@ def solution(friends, gifts):
         visited[(friend, friend)] = True
     
     for gift in gifts:
-        give, take = map(str, gift.split())
+        give, take = gift.split()
         board[(give, take)] += 1
         score[give][0] += 1
         score[take][1] += 1
@@ -40,6 +40,6 @@ def solution(friends, gifts):
     answer = max(next_month.values()) if next_month else 0
     return answer
 
-# print(solution(["muzi", "ryan", "frodo", "neo"], ["muzi frodo", "muzi frodo", "ryan muzi", "ryan muzi","ryan muzi", "frodo muzi", "frodo ryan", "neo muzi"]))
+print(solution(["muzi", "ryan", "frodo", "neo"], ["muzi frodo", "muzi frodo", "ryan muzi", "ryan muzi","ryan muzi", "frodo muzi", "frodo ryan", "neo muzi"]))
 
 print(solution(['a', 'b', 'c'], ['a b', 'b a', 'c a', 'a c', 'a c', 'c a']))
