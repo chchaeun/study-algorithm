@@ -1,5 +1,6 @@
 from collections import defaultdict
 
+
 def in_range(y, x, n):
     # 오른쪽 변 진행 시 아래, 왼쪽 변 진행 시 위로 넘어가는 경우 
     if y < n-1 and x == -(n-1) or 3 * (n-1) < y and x == n-1:
